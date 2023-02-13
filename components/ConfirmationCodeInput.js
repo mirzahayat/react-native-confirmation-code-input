@@ -23,7 +23,7 @@ export default class ConfirmationCodeInput extends Component {
     codeInputStyle: TextInputPropTypes.style,
     containerStyle: viewPropTypes.style,
     onFulfill: PropTypes.func,
-    onCodeChange: PropTypes.func,
+    onCodeChange: PropTypes.any,
   };
   
   static defaultProps = {
@@ -235,7 +235,7 @@ export default class ConfirmationCodeInput extends Component {
         codeArr: newCodeArr,
         currentIndex: prevState.currentIndex + 1
       };
-    }, () => { onCodeChange(newCodeArr.join('')) });
+    }, () => {onCodeChange && onCodeChange(newCodeArr.join('')) });
   }
   
   render() {
